@@ -13,9 +13,9 @@ function playRound(computerSelection, playerSelection){
     if((computerSelection=='Rock' && playerSelection=='Scissors') || 
         (computerSelection=='Paper' && playerSelection=='Rock') || 
         (computerSelection=='Scissors' && playerSelection=='Paper')){
-            return "You Lose!";
+            return "You Lose! "+computerSelection+" beats "+playerSelection;
     }else{
-        return "You Win!";
+        return "You Win! "+playerSelection+" beats "+computerSelection;
     }
 }
 const computerSelection = getComputerChoice();
