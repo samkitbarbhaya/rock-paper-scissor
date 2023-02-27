@@ -18,6 +18,11 @@ function playRound(computerSelection, playerSelection){
         return "You Win! "+playerSelection+" beats "+computerSelection;
     }
 }
-const computerSelection = getComputerChoice();
-const playerSelection = "scissors";
-console.log(playRound(computerSelection,playerSelection));
+function game(){
+    for(let i=0;i<5;i++){
+        const computerSelection = getComputerChoice();
+        const playerSelection = prompt();
+        console.log(playRound(computerSelection,playerSelection));
+    }
+}
+game();
