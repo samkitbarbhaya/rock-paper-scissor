@@ -6,3 +6,18 @@ function getComputerChoice(){
     let ind = getRandomInt(3);
     return rps[ind];
 }
+function playRound(computerSelection, playerSelection){
+    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    if(computerSelection==playerSelection) return "It's a tie!";
+    if((computerSelection=='Rock' && playerSelection=='Scissors') || 
+        (computerSelection=='Paper' && playerSelection=='Rock') || 
+        (computerSelection=='Scissors' && playerSelection=='Paper')){
+            return "You Lose!";
+    }else{
+        return "You Win!";
+    }
+}
+const computerSelection = getComputerChoice();
+const playerSelection = "scissors";
+console.log(playRound(computerSelection,playerSelection));
