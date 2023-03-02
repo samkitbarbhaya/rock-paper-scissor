@@ -24,6 +24,7 @@ const computerSelectionDiv = document.querySelector('.computer-selection');
 const resultDiv = document.querySelector('.result');
 const playerScoreSpan = document.querySelector('.player-score');
 const computerScoreSpan = document.querySelector('.computer-score');
+const finalResultDiv = document.querySelector('.final-result');
 let playerScore = 0;
 let computerScore = 0;
 function game(e){
@@ -34,7 +35,7 @@ function game(e){
         resultDiv.textContent = "It's a tie! You both chose "+playerSelection;
     }else if(result==1){
         playerScore++;
-        resultDiv.textContent = "You Win! You chose "+playerSelection+" and  The Computer chose"+computerSelection;
+        resultDiv.textContent = "You Win! You chose "+playerSelection+" and  The Computer chose "+computerSelection;
     }else{
         computerScore++;
         resultDiv.textContent = "You Lose! You chose "+playerSelection+" and the The Computer chose "+computerSelection;
@@ -44,7 +45,10 @@ function game(e){
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
     if(playerScore==5 || computerScore==5){
-        
+        buttons.forEach((button)=>{
+            button.setAttribute('disabled','disabled');
+        })
+        finalResultDiv.textContent = `${playerScore==5? "You":"Computer"} won the game! Reload the page to play again`;
     }
 }
 
